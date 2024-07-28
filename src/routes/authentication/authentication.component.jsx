@@ -1,34 +1,24 @@
 
 import React from 'react';
-import { signInWithGooglePopup } from '../../utils/firebase/firebase.utils';
 import SignUpForm from '../../components/sign-up/sign-up-form.component';
+import SignInForm from '../../components/sign-in/sign-in-form.component';
+import './authentication.styles.scss';
 
-const SignIn = () => {
-    const logGoogleUser = async () => {
-        try {
-            const response = await signInWithGooglePopup();
-            console.log('User:', response.user);
-            console.log('User Document Reference:', response.userDocRef);
-        } catch (error) {
-            console.error('Error signing in with Google:', error);
-        }
-    };
-
+const Authentication = () => {
     return (
-        <div>
-            <h1>Sign in Page</h1>
-            <button onClick={logGoogleUser}>Sign in with Google</button>
+        <div className="authentication-container">
+            <SignInForm />
             <SignUpForm />
         </div>
     );
 };
 
-export default SignIn;
+export default Authentication;
 
 
 
 
-{/* import {
+/* import {
     signInWithGooglePopup,
     
 } from '../../utils/firebase/firebase.utils'
@@ -50,7 +40,7 @@ const SignIn = () => {
 }
 
 export default SignIn;
-*/}
+*/
 
 
 

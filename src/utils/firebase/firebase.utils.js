@@ -13,7 +13,8 @@ import {
     getAuth,
     signInWithPopup,
     GoogleAuthProvider,
-    createUserWithEmailAndPassword
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword
 } from 'firebase/auth';
 import {
     getFirestore,
@@ -93,6 +94,12 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
     return await createUserWithEmailAndPassword(auth, email, password)
 }
 
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+    if (!email || !password) return;
+
+
+    return await signInWithEmailAndPassword(auth, email, password);
+}
 
 
 
@@ -101,7 +108,7 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
 
 //
 
-{/*
+/*
 const firebaseConfig = {
     apiKey: "AIzaSyCQVabHgtfp5-woc7DpmrGfXbssMD2z4S4",
     authDomain: "new-shop-db.firebaseapp.com",
@@ -131,7 +138,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 
-*/}
+*/
 
 
 
